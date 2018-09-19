@@ -3,10 +3,10 @@ package neutrino
 import (
 	"fmt"
 
-	"github.com/btcsuite/btcd/blockchain"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcwallet/waddrmgr"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/wire"
+	"github.com/coinsuite/coinwallet/waddrmgr"
 	"github.com/lightninglabs/neutrino/headerfs"
 )
 

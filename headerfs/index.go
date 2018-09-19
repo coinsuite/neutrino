@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcwallet/walletdb"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coinwallet/walletdb"
 )
 
 var (

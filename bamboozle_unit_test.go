@@ -6,12 +6,12 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil/gcs"
-	"github.com/btcsuite/btcutil/gcs/builder"
-	"github.com/btcsuite/btcwallet/walletdb"
+	"github.com/coinsuite/btcutil/gcs"
+	"github.com/coinsuite/btcutil/gcs/builder"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/wire"
+	"github.com/coinsuite/coinwallet/walletdb"
 	"github.com/lightninglabs/neutrino/headerfs"
 )
 
