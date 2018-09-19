@@ -12,13 +12,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/btcd/blockchain"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcutil/gcs"
-	"github.com/btcsuite/btcutil/gcs/builder"
+	"github.com/coinsuite/btcutil"
+	"github.com/coinsuite/btcutil/gcs"
+	"github.com/coinsuite/btcutil/gcs/builder"
+	"github.com/coinsuite/coind/blockchain"
+	"github.com/coinsuite/coind/chaincfg"
+	"github.com/coinsuite/coind/chaincfg/chainhash"
+	"github.com/coinsuite/coind/wire"
 	"github.com/lightninglabs/neutrino/cache"
 	"github.com/lightninglabs/neutrino/cache/lru"
 	"github.com/lightninglabs/neutrino/filterdb"
@@ -42,7 +42,7 @@ var (
 // loadBlocks loads the blocks contained in the testdata directory and returns
 // a slice of them.
 //
-// NOTE: copied from btcsuite/btcd/database/ffldb/interface_test.go
+// NOTE: copied from coinsuite/coind/database/ffldb/interface_test.go
 func loadBlocks(t *testing.T, dataFile string, network wire.BitcoinNet) (
 	[]*btcutil.Block, error) {
 	// Open the file that contains the blocks for reading.
