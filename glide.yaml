@@ -21,7 +21,7 @@ import:
   - gcs/builder
   - hdkeychain
 - package: github.com/coinsuite/coinwallet
-  version: 96f6b01b631352478120e96162d81be9ce6ccc78
+  version: 95dfd1bb999a267afe76f3240659ec29ad8a2fac
   subpackages:
   - waddrmgr
   - wallet/txauthor

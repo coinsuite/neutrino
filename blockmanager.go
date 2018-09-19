@@ -2203,7 +2203,7 @@ func (b *blockManager) handleHeadersMsg(hmsg *headersMsg) {
 
 	// If not current, request the next batch of headers starting from the
 	// latest known header and ending with the next checkpoint.
-	if !b.IsCurrent() || b.server.chainParams.Net == chaincfg.SimNetParams.Net {
+	if !b.IsCurrent() || b.server.chainParams.Net == chaincfg.GetSimNet().Net {
 		locator := blockchain.BlockLocator([]*chainhash.Hash{finalHash})
 		nextHash := zeroHash
 		if b.nextCheckpoint != nil {
