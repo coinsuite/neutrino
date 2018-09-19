@@ -12,7 +12,7 @@ import (
 	"github.com/coinsuite/coind/chaincfg/chainhash"
 	"github.com/coinsuite/coind/wire"
 	"github.com/coinsuite/coinwallet/walletdb"
-	"github.com/lightninglabs/neutrino/headerfs"
+	"github.com/coinsuite/neutrino/headerfs"
 )
 
 func decodeHashNoError(str string) *chainhash.Hash {

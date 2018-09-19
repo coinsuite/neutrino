@@ -19,10 +19,10 @@ import (
 	"github.com/coinsuite/coind/chaincfg"
 	"github.com/coinsuite/coind/chaincfg/chainhash"
 	"github.com/coinsuite/coind/wire"
-	"github.com/lightninglabs/neutrino/cache"
-	"github.com/lightninglabs/neutrino/cache/lru"
-	"github.com/lightninglabs/neutrino/filterdb"
-	"github.com/lightninglabs/neutrino/headerfs"
+	"github.com/coinsuite/neutrino/cache"
+	"github.com/coinsuite/neutrino/cache/lru"
+	"github.com/coinsuite/neutrino/filterdb"
+	"github.com/coinsuite/neutrino/headerfs"
 )
 
 var (

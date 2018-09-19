@@ -22,9 +22,9 @@ import (
 	"github.com/coinsuite/coind/wire"
 	"github.com/coinsuite/coinwallet/waddrmgr"
 	"github.com/coinsuite/coinwallet/walletdb"
-	"github.com/lightninglabs/neutrino/cache/lru"
-	"github.com/lightninglabs/neutrino/filterdb"
-	"github.com/lightninglabs/neutrino/headerfs"
+	"github.com/coinsuite/neutrino/cache/lru"
+	"github.com/coinsuite/neutrino/filterdb"
+	"github.com/coinsuite/neutrino/headerfs"
 )
 
 // These are exported variables so they can be changed by users.

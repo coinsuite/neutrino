@@ -14,9 +14,9 @@ import (
 	"github.com/coinsuite/coind/blockchain"
 	"github.com/coinsuite/coind/chaincfg/chainhash"
 	"github.com/coinsuite/coind/wire"
+	"github.com/coinsuite/neutrino/cache"
+	"github.com/coinsuite/neutrino/filterdb"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightninglabs/neutrino/cache"
-	"github.com/lightninglabs/neutrino/filterdb"
 )
 
 var (

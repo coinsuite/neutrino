@@ -29,7 +29,7 @@ import (
 	"github.com/coinsuite/coinwallet/wallet/txauthor"
 	"github.com/coinsuite/coinwallet/walletdb"
 	_ "github.com/coinsuite/coinwallet/walletdb/bdb"
-	"github.com/lightninglabs/neutrino"
+	"github.com/coinsuite/neutrino"
 )
 
 var (

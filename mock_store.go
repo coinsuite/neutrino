@@ -7,7 +7,7 @@ import (
 	"github.com/coinsuite/coind/chaincfg/chainhash"
 	"github.com/coinsuite/coind/wire"
 	"github.com/coinsuite/coinwallet/waddrmgr"
-	"github.com/lightninglabs/neutrino/headerfs"
+	"github.com/coinsuite/neutrino/headerfs"
 )
 
 // mockBlockHeaderStore is an implementation of the BlockHeaderStore backed by

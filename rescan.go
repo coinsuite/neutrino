@@ -19,7 +19,7 @@ import (
 	"github.com/coinsuite/coind/txscript"
 	"github.com/coinsuite/coind/wire"
 	"github.com/coinsuite/coinwallet/waddrmgr"
-	"github.com/lightninglabs/neutrino/headerfs"
+	"github.com/coinsuite/neutrino/headerfs"
 )
 
 var (

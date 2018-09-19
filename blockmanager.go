@@ -19,8 +19,8 @@ import (
 	"github.com/coinsuite/coind/chaincfg/chainhash"
 	"github.com/coinsuite/coind/txscript"
 	"github.com/coinsuite/coind/wire"
-	"github.com/lightninglabs/neutrino/headerfs"
-	"github.com/lightninglabs/neutrino/headerlist"
+	"github.com/coinsuite/neutrino/headerfs"
+	"github.com/coinsuite/neutrino/headerlist"
 )
 
 const (
