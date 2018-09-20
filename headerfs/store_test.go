@@ -19,6 +19,10 @@ import (
 	"github.com/davecgh/go-spew/spew"
 )
 
+func init() {
+	chaincfg.Init(chaincfg.DefaultParamSet)
+}
+
 func createTestBlockHeaderStore() (func(), walletdb.DB, string,
 	*blockHeaderStore, error) {
 	tempDir, err := ioutil.TempDir("", "store_test")
@@ -32,7 +36,7 @@ func createTestBlockHeaderStore() (func(), walletdb.DB, string,
 		return nil, nil, "", nil, err
 	}
 
-	hStore, err := NewBlockHeaderStore(tempDir, db, &chaincfg.SimNetParams)
+	hStore, err := NewBlockHeaderStore(tempDir, db, chaincfg.GetSimNet())
 	if err != nil {
 		return nil, nil, "", nil, err
 	}
@@ -47,7 +51,7 @@ func createTestBlockHeaderStore() (func(), walletdb.DB, string,
 
 func createTestBlockHeaderChain(numHeaders uint32) []BlockHeader {
 	blockHeaders := make([]BlockHeader, numHeaders)
-	prevHeader := &chaincfg.SimNetParams.GenesisBlock.Header
+	prevHeader := &chaincfg.GetSimNet().GenesisBlock.Header
 	for i := uint32(1); i <= numHeaders; i++ {
 		bitcoinHeader := &wire.BlockHeader{
 			Bits:      uint32(rand.Int31()),
@@ -200,7 +204,7 @@ func TestBlockHeaderStoreRecovery(t *testing.T) {
 
 	// Next, we'll re-create the block header store in order to trigger the
 	// recovery logic.
-	hs, err := NewBlockHeaderStore(tempDir, db, &chaincfg.SimNetParams)
+	hs, err := NewBlockHeaderStore(tempDir, db, chaincfg.GetSimNet())
 	if err != nil {
 		t.Fatalf("unable to re-create bhs: %v", err)
 	}
@@ -236,7 +240,7 @@ func createTestFilterHeaderStore() (func(), walletdb.DB, string, *FilterHeaderSt
 	}
 
 	hStore, err := NewFilterHeaderStore(tempDir, db, RegularFilter,
-		&chaincfg.SimNetParams)
+		chaincfg.GetSimNet())
 	if err != nil {
 		return nil, nil, "", nil, err
 	}
@@ -426,7 +430,7 @@ func TestFilterHeaderStoreRecovery(t *testing.T) {
 
 	// Next, we'll re-create the block header store in order to trigger the
 	// recovery logic.
-	fhs, err = NewFilterHeaderStore(tempDir, db, RegularFilter, &chaincfg.SimNetParams)
+	fhs, err = NewFilterHeaderStore(tempDir, db, RegularFilter, chaincfg.GetSimNet())
 	if err != nil {
 		t.Fatalf("unable to re-create bhs: %v", err)
 	}

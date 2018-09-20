@@ -15,6 +15,10 @@ import (
 	_ "github.com/coinsuite/coinwallet/walletdb/bdb"
 )
 
+func init() {
+	chaincfg.Init(chaincfg.DefaultParamSet)
+}
+
 func createTestDatabase() (func(), FilterDatabase, error) {
 	tempDir, err := ioutil.TempDir("", "neutrino")
 	if err != nil {
@@ -31,7 +35,7 @@ func createTestDatabase() (func(), FilterDatabase, error) {
 		db.Close()
 	}
 
-	filterDB, err := New(db, chaincfg.SimNetParams)
+	filterDB, err := New(db, *chaincfg.GetSimNet())
 	if err != nil {
 		return nil, nil, err
 	}
@@ -46,7 +50,7 @@ func TestGenesisFilterCreation(t *testing.T) {
 		t.Fatalf("unable to create test db: %v", err)
 	}
 
-	genesisHash := chaincfg.SimNetParams.GenesisHash
+	genesisHash := chaincfg.GetSimNet().GenesisHash
 
 	// With the database initialized, we should be able to fetch the
 	// regular filter for the genesis block.
