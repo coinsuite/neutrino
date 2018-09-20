@@ -12,7 +12,7 @@ install:
   - pushd $GOPATH/src/github.com/coinsuite/
   - git clone https://github.com/coinsuite/coind
   - pushd coind
-  - $GOPATH/src/github.com/lightninglabs/neutrino/coind_checkout.sh
+  - $GOPATH/src/github.com/coinsuite/neutrino/coind_checkout.sh
   - glide install
   - go install . ./cmd/...
   - popd
