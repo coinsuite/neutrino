@@ -3,7 +3,7 @@ import:
 - package: github.com/coreos/bbolt
   version: 4f5275f4ebbf6fe7cb772de987fa96ee674460a7
 - package: github.com/coinsuite/coind
-  version: 8a52aca9072e23dfabf563c94562945334a961f6
+  version: 609b0be12f77cd07fc584386cd381b4241833c86
   subpackages:
   - blockchain
   - btcec

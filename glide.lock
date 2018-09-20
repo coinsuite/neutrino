@@ -1,5 +1,5 @@
-hash: 27eef947b6f5d5e5cbd269ec57e09ef67b233faa51a3c11e28c666f6819ba32c
-updated: 2018-09-19T15:29:08.955507+07:00
+hash: 900a8c4e2fa44132677b521b8074320aa382c9a10bb8acd4f00a789cdf39c4c5
+updated: 2018-09-20T14:07:44.035585+07:00
 imports:
 - name: github.com/aead/siphash
   version: 83563a290f60225eb120d724600b9690c3fb536f
@@ -34,7 +34,7 @@ imports:
   - gcs/builder
   - hdkeychain
 - name: github.com/coinsuite/coind
-  version: 8a52aca9072e23dfabf563c94562945334a961f6
+  version: 609b0be12f77cd07fc584386cd381b4241833c86
   subpackages:
   - addrmgr
   - blockchain
@@ -50,7 +50,7 @@ imports:
   - txscript
   - wire
 - name: github.com/coinsuite/coinwallet
-  version: 95dfd1bb999a267afe76f3240659ec29ad8a2fac
+  version: 18dee5b0fa5e8ed41125036b2a42c096ee02dc9c
   subpackages:
   - internal/helpers
   - internal/zero
