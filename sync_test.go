@@ -181,6 +181,10 @@ var (
 	ourKnownTxsByFilteredBlock = make(map[chainhash.Hash][]*btcutil.Tx)
 )
 
+func init() {
+	chaincfg.Init(chaincfg.DefaultParamSet)
+}
+
 // secSource is an implementation of btcwallet/txauthor/SecretsSource that
 // stores WitnessPubKeyHash addresses.
 type secSource struct {
@@ -327,7 +331,7 @@ func testRescan(harness *neutrinoHarness, t *testing.T) {
 	}
 	// Fee rate is satoshis per byte
 	tx1, err = harness.h1.CreateTransaction(
-		[]*wire.TxOut{&out1}, 1000, true,
+		[]*wire.TxOut{&out1}, 1000,
 	)
 	if err != nil {
 		t.Fatalf("Couldn't create transaction from script: %s", err)
@@ -354,7 +358,7 @@ func testRescan(harness *neutrinoHarness, t *testing.T) {
 	}
 	// Fee rate is satoshis per byte
 	tx2, err = harness.h1.CreateTransaction(
-		[]*wire.TxOut{&out2}, 1000, true,
+		[]*wire.TxOut{&out2}, 1000,
 	)
 	if err != nil {
 		t.Fatalf("Couldn't create transaction from script: %s", err)
@@ -992,7 +996,7 @@ func TestNeutrinoSync(t *testing.T) {
 
 	// Create a btcd SimNet node and generate 800 blocks
 	h1, err := rpctest.New(
-		&chaincfg.SimNetParams, nil, []string{"--txindex"},
+		chaincfg.GetSimNet(), nil, []string{"--txindex"},
 	)
 	if err != nil {
 		t.Fatalf("Couldn't create harness: %s", err)
@@ -1009,7 +1013,7 @@ func TestNeutrinoSync(t *testing.T) {
 
 	// Create a second btcd SimNet node
 	h2, err := rpctest.New(
-		&chaincfg.SimNetParams, nil, []string{"--txindex"},
+		chaincfg.GetSimNet(), nil, []string{"--txindex"},
 	)
 	if err != nil {
 		t.Fatalf("Couldn't create harness: %s", err)
@@ -1022,7 +1026,7 @@ func TestNeutrinoSync(t *testing.T) {
 
 	// Create a third btcd SimNet node and generate 1200 blocks
 	h3, err := rpctest.New(
-		&chaincfg.SimNetParams, nil, []string{"--txindex"},
+		chaincfg.GetSimNet(), nil, []string{"--txindex"},
 	)
 	if err != nil {
 		t.Fatalf("Couldn't create harness: %s", err)
@@ -1065,7 +1069,7 @@ func TestNeutrinoSync(t *testing.T) {
 	// test.
 
 	// Copy parameters and insert checkpoints
-	modParams := chaincfg.SimNetParams
+	modParams := chaincfg.GetSimNet()
 	for _, height := range []int64{111, 333, 555, 777, 999} {
 		hash, err := h1.Node.GetBlockHash(height)
 		if err != nil {
@@ -1094,7 +1098,7 @@ func TestNeutrinoSync(t *testing.T) {
 	config := neutrino.Config{
 		DataDir:     tempDir,
 		Database:    db,
-		ChainParams: modParams,
+		ChainParams: *modParams,
 		AddPeers: []string{
 			h3.P2PAddress(),
 			h2.P2PAddress(),
@@ -1126,7 +1130,7 @@ func TestNeutrinoSync(t *testing.T) {
 // reorg testing. It brings up and tears down a temporary node, otherwise the
 // nodes try to reconnect to each other which results in unintended reorgs.
 func csd(harnesses []*rpctest.Harness) error {
-	hTemp, err := rpctest.New(&chaincfg.SimNetParams, nil, nil)
+	hTemp, err := rpctest.New(chaincfg.GetSimNet(), nil, nil)
 	if err != nil {
 		return err
 	}
